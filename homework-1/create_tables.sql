@@ -1,9 +1,9 @@
 -- SQL-команды для создания таблиц
 
 
-create table employees_data
+CREATE TABLE employees
 (
-    employees_id int primary key,
+    employee_id int PRIMARY KEY NOT NULL,
 	first_name varchar(100) not null,
 	last_name varchar(100) not null,
 	title  varchar(100),
@@ -12,7 +12,7 @@ create table employees_data
 );
 
 
-create table customers_data
+CREATE TABLE customers
 (
     customer_id varchar(50) primary key,
 	company_name varchar(100) not null,
@@ -20,11 +20,11 @@ create table customers_data
 );
 
 
-create table orders_data
+CREATE TABLE orders
 (
     orders_id int primary key,
-	customer_id varchar(50) references customers_data(customers_id) not null,
-	employee_id int references employees_data(employees_id) not null,
+	customer_id varchar(50) references customers(customer_id) not null,
+	employee_id int references employees(employee_id) not null,
 	order_date date,
 	ship_city varchar(100)
 );
