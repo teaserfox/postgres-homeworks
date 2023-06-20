@@ -10,7 +10,7 @@ ADD CONSTRAINT chk_products_discontinued
 CHECK (discontinued IN (0, 1));
 
 -- 3. Создать новую таблицу, содержащую все продукты, снятые с продажи (discontinued = 1)
-CREATE TABLE new_products
+CREATE TABLE IF NOT EXISTS new_products
 AS SELECT * FROM products
 WHERE discontinued=1;
 
